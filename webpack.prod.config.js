@@ -8,7 +8,7 @@ var DefinePlugin = new Webpack.DefinePlugin({
   },
 });
 var CleanPlugin = new CleanWebpackPlugin(['static']);
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: 'index.html' });
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './public/index.html' });
 var UglifyPlugin = new Webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }});
 var DedupePlugin = new Webpack.optimize.DedupePlugin();
 var CommonChunksPlugin = new Webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'manifest'] });
@@ -16,7 +16,7 @@ var CommonChunksPlugin = new Webpack.optimize.CommonsChunkPlugin({ names: ['vend
 module.exports = {
     entry: {
 	    vendor: ['react', 'react-dom'],
-	    app: './app/App.js',
+	    app: './app/index.js',
 	  },
     output: {
     	path: 'static',
