@@ -14,7 +14,8 @@ module.exports = {
     devServer: {
         inline: true,
         contentBase: BUILD_DIR,
-        port: 30010
+        port: 30010,
+        historyApiFallback: true
 	},
 	module: {
 	    loaders: [{

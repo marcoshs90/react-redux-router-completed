@@ -1,16 +1,29 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, browserHistory} from 'react-router';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+//import { Router, browserHistory } from 'react-router';
+import { ReduxRouter } from 'redux-router'
+import { Route, IndexRoute, Router, browserHistory } from 'react-router';
+import thunk from 'redux-thunk';
 
-import App from './components/App';
-import Info from './components/Info';
-import About from './components/About';
+//import routes from './containers/App';
 
-render(
-    <Router history={browserHistory}>
-	   <Route path="/" component={App}/>
-	   <Route path="/info" component={Info}/>
-	   <Route path="/about" component={About}/>
-	</Router>,
-    document.getElementById('App')
+import App from './containers/topics/TopicsScreen'
+import Teste from './containers/teste/Teste'
+
+import * as reducers from './store/reducers';
+const store = createStore(combineReducers(reducers), applyMiddleware(thunk));
+
+ReactDOM.render(
+  <div>
+  <Provider store={store}>
+      <Router history={browserHistory} >
+        <Route path="/" component={App}>
+          <Route path="teste" component={Teste} />
+        </Route>
+      </Router>
+  </Provider>
+  </div>,
+  document.getElementById('App')
 );
