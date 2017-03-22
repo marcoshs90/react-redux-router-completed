@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import autoBind from 'react-autobind';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 
 import * as testeActions from '../../store/teste/actions';
 import * as testeSelectors from '../../store/teste/reducer';
 
-class Teste extends Component {
+import { Link } from 'react-router';
+
+class Teste2 extends Component {
 
   constructor(props) {
     super(props);
@@ -19,9 +20,9 @@ class Teste extends Component {
 
   render() {
     return (
-      <div className="Teste">
-        <h1>HOME!!!!!!</h1>
-        <Link to="/Teste2">Ir para teste 2</Link>
+      <div>
+        <h1>Esse é o teste 2</h1>
+        <Link to="/">Voltar</Link>
         <hr />
         <Link to="/opa">Ir para 404</Link>
       </div>
@@ -31,8 +32,8 @@ class Teste extends Component {
 
 function mapStateToProps(state) {
   return {
-	  data: state
-	};
+    data: state
+  };
 }
 
-export default connect(mapStateToProps)(Teste);
+export default connect(mapStateToProps)(Teste2);

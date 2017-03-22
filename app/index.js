@@ -7,23 +7,26 @@ import { ReduxRouter } from 'redux-router'
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 
-//import routes from './containers/App';
+// import routes from './containers/App';
 
-import App from './containers/topics/TopicsScreen'
+// import App from './containers/topics/TopicsScreen'
+import { App } from './containers/App'
 import Teste from './containers/teste/Teste'
+import Teste2 from './containers/teste/Teste2'
+import NotFound from './containers/NotFound'
 
 import * as reducers from './store/reducers';
 const store = createStore(combineReducers(reducers), applyMiddleware(thunk));
 
 ReactDOM.render(
-  <div>
   <Provider store={store}>
       <Router history={browserHistory} >
-        <Route path="/" component={App}>
-          <Route path="teste" component={Teste} />
+        <Route component={App}>
+          <Route path="/" component={Teste} />
+          <Route path="/teste2" component={Teste2} />
+          <Route path="*" component={NotFound} />
         </Route>
       </Router>
-  </Provider>
-  </div>,
+  </Provider>,
   document.getElementById('App')
 );
