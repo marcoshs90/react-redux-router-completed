@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 export class App extends Component {
+
   render() {
     return(
       <div>
@@ -11,10 +12,4 @@ export class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    data: state
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default connect(App);
