@@ -1,11 +1,15 @@
-import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import App from './topics/TopicsScreen'
-import Teste from './teste/Teste'
+export class App extends Component {
 
-export default (
-  <Route path="/" component={App}>
-    <Route path="/teste" component={Teste} />
-  </Route>
-)
+  render() {
+    return(
+      <div>
+        { this.props.children }
+      </div>
+    )
+  }
+}
+
+export default connect(App);
