@@ -10,7 +10,6 @@ var DefinePlugin = new Webpack.DefinePlugin({
 var CleanPlugin = new CleanWebpackPlugin(['static']);
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './public/index.html' });
 var UglifyPlugin = new Webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }});
-var DedupePlugin = new Webpack.optimize.DedupePlugin();
 var CommonChunksPlugin = new Webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'manifest'] });
 
 module.exports = {
@@ -19,9 +18,8 @@ module.exports = {
 	    app: './app/index.js',
 	  },
     output: {
-    	path: 'static',
-        filename: '[name].[chunkhash].js',
-		chunkFilename: '[chunkhash].bundle.js',
+    	filename: '[name].[chunkhash].js',
+		  chunkFilename: '[chunkhash].bundle.js',
     },
     devServer: {
         inline: true,
@@ -41,5 +39,5 @@ module.exports = {
 	resolveLoader: {
 	    moduleExtensions: ['-loader']
 	},
-	plugins: [CleanPlugin, DefinePlugin, HTMLWebpackPluginConfig, UglifyPlugin, DedupePlugin, CommonChunksPlugin]
+	plugins: [CleanPlugin, DefinePlugin, HTMLWebpackPluginConfig, UglifyPlugin, CommonChunksPlugin]
 }
